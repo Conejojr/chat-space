@@ -1,0 +1,198 @@
+$white: #ffffff;
+$blue: #38AEF0;
+$black: #434A54;
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.heading{
+  background-color: #2f3e51;
+  height: 100%;
+  width: 300px;
+  &__top {
+    height: 100px;
+    background-color: #253141;
+    width: 100%;
+    &__box{
+      padding-top: 38px;
+      height: 25px;
+      width: calc(100% - 40px);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      &--name {
+        font-weight: bold;
+        color: $white;
+      }
+      &__link {
+        height: 100%;
+        width: 50px;
+        display: flex;
+        flex-direction: row;
+        &--new {
+          
+        }
+        &--edit{
+          
+        }
+      }
+    }
+  }
+  &__groups{
+    overflow: scroll;
+    margin: 20px;
+    &__list{
+      height: 50px;
+      width: 100%;
+      margin-bottom: 40px; 
+      &__name{
+        color: $white;
+        font-size: 15px;
+      }
+      &__text{
+        color: $white;
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+.fa-edit{
+  color: $white;
+  padding-right: 10px;
+}
+.fa-cog{
+  color: $white;
+}
+  // .heading__top
+//     .heading__top__name
+//     .heading__top__link__new
+//     .herding__top__link__edit
+
+//   .heading__groups
+//     .heading__groups__list
+//       .heading__groups__list__name
+//       .heading__groups__list__text
+@mixin space {
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.contents{
+  height: 100%;
+  width: calc(100vw - 380px);
+
+  &__group{
+    height: 100px;
+    width: 100%;
+    @include space;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    &__info{
+      width: 100px;
+      margin-top: 35px;
+      &__name{
+        font-size: 20px;
+        color: #333;
+      }
+      &__member{
+        font-size: 12px;
+        bottom: 0px;
+        margin-top: 15px; 
+        color: #999
+      }
+    }
+    &__box{
+      margin-top: 28px;
+      height: 40px;
+      width: 70px; 
+      border: 1px solid $blue;
+      &__edit{
+        color: $blue;
+        line-height: 40px;
+        text-align: center;
+      }
+    }
+  }
+  &__chat{
+    width: 100%;
+    height: calc(100% - 200px);
+    background-color: #fafafa;
+    @include space;
+    overflow: scroll;
+    &__list{
+      height: 126px;
+      padding-top: 46px;
+      padding-bottom: 40px;
+      display: flex;
+      &__info{
+        
+        height: 100%;
+        padding-right: 10px;
+        &__name{
+          color: $black;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        &__text{
+          color: $black;
+          font-size: 14px;
+          padding-top: 10px;
+        }
+      }
+      &__time{
+        color: #999;
+        font-size: 12px;
+      }
+    }
+    
+  }
+  &__footer{
+    // position: fixed;
+    width: calc(100vw - 380px);
+    height: 100px;
+    background-color: #eee;
+    display: flex;
+    @include space;
+    &__message{
+      width: calc(100vw - 225px);
+      background-color: $white;
+      padding-right: 10px;
+      display: inline-flex;
+      justify-content: space-between;
+      margin: auto;
+      position: relative;
+      &__text{
+        line-height: 50px;
+        margin-left: 10px;
+      }
+
+      &__image{
+        
+      }
+    }
+    &__send{
+      width: 130px;
+      height: 50px;
+      background-color: $blue;
+      color: $white;
+      line-height: 50px;
+      text-align: center;
+      margin-top: 25px;
+      margin-left: 15px;
+    }
+  }
+}
+
+.fa-image{
+  position: absolute;
+  top: 18px;
+  right:15px;
+  color: $black;
+}
