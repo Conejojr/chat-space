@@ -7,7 +7,9 @@
       .contents__group__info__name
         = @group.name
       .contents__group__info__member
-        = "Member: #{current_user.name}"
+        Member:
+        -@group.users.each do |user|
+          = user.name
     .contents__group__box
       = link_to edit_group_path(@group) do
         .contents__group__box__edit
