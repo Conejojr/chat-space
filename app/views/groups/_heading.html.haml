@@ -1,0 +1,20 @@
+.heading__top
+  .heading__top__box
+    .heading__top__box--name
+      = current_user.name
+    .heading__top__box__link
+      .heading__top__box__link--new
+      = link_to new_group_path() do
+        %i.fa.fa-edit
+      .herding__top__box__link--edit
+      = link_to edit_user_path(current_user) do
+        %i.fa.fa-cog
+
+.heading__groups
+  - current_user.groups.each do |group|
+    = link_to group_messages_path(group) do
+      .heading__groups__list
+        .heading__groups__list__name
+          = group.name
+        .heading__groups__list__text
+          = group.show_last_message

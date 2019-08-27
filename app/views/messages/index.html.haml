@@ -1,50 +1,26 @@
 .heading
-  .heading__top
-    .heading__top__box
-      .heading__top__box--name
-        %p name
-      .heading__top__box__link
-        .heading__top__box__link--new
-        = link_to "" do
-          %i.fa.fa-edit
-        .herding__top__box__link--edit
-        =link_to "" do
-          %i.fa.fa-cog
-
-  .heading__groups
-    .heading__groups__list
-      .heading__groups__list__name
-        %p Group
-      .heading__groups__list__text
-        %p Text
+  = render 'groups/heading'
 
 .contents
   .contents__group
     .contents__group__info
       .contents__group__info__name
-        %p.class  Group
+        = @group.name
       .contents__group__info__member
-        %p.class Member
+        = "Member: #{current_user.name}"
     .contents__group__box
-      .contents__group__box__edit
-        %p.class Edit
+      = link_to edit_group_path(@group) do
+        .contents__group__box__edit
+          %p.class Edit
 
   .contents__chat
-    .contents__chat__list
-      .contents__chat__list__info
-        .contents__chat__list__info__name
-          %p.class name
-        .contents__chat__list__info__text
-          %p.class text
-      .contents__chat__list__time
-        %p= Time.now
+    = render @messages
 
   .contents__footer
-    .contents__footer__message
-      .contents__footer__message__text
-        %p.class type a message
-      .contents__footer__message__image
-      = link_to "" do
-        %i.fa.fa-image.fa-lg
-    .contents__footer__send
-      %p.class Send
+    = form_for [@group, @message] do |f|
+      .contents__footer__message
+        = f.text_field :content, class: 'contents__footer__message__text', placeholder: ' type a message'
+        = f.label :image, class: 'contents__footer__message__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'contents__footer__send'

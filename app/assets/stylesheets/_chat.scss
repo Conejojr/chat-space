@@ -6,11 +6,10 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: row;
 }
 
 .heading{
+  float: left;
   background-color: #2f3e51;
   height: 100%;
   width: 300px;
@@ -45,19 +44,21 @@ html, body {
   }
   &__groups{
     overflow: scroll;
+    height: calc(100% - 140px);
     margin: 20px;
-    &__list{
-      height: 50px;
-      width: 100%;
-      margin-bottom: 40px; 
-      &__name{
-        color: $white;
-        font-size: 15px;
-      }
-      &__text{
-        color: $white;
-        font-size: 11px;
-      }
+    
+      &__list{
+        height: 50px;
+        width: 100%;
+        margin-bottom: 40px; 
+        &__name{
+          color: $white;
+          font-size: 15px;
+        }
+        &__text{
+          color: $white;
+          font-size: 11px;
+        }
     }
   }
 }
@@ -84,6 +85,7 @@ html, body {
 }
 
 .contents{
+  float: left;
   height: 100%;
   width: calc(100vw - 380px);
 
@@ -127,9 +129,9 @@ html, body {
     @include space;
     overflow: scroll;
     &__list{
-      height: 126px;
-      padding-top: 46px;
-      padding-bottom: 40px;
+      height: 70px;
+      padding-top: 30px;
+      padding-bottom: 30px;
       display: flex;
       &__info{
         
@@ -145,6 +147,10 @@ html, body {
           font-size: 14px;
           padding-top: 10px;
         }
+        &__image{
+          height: 100px;
+          width: 200px;
+        }
       }
       &__time{
         color: #999;
@@ -154,31 +160,45 @@ html, body {
     
   }
   &__footer{
-    // position: fixed;
     width: calc(100vw - 380px);
     height: 100px;
     background-color: #eee;
     display: flex;
     @include space;
+    form {
+      height: 0px;
+      width:100%;
+    }
     &__message{
-      width: calc(100vw - 225px);
+      width: calc(100vw - 510px);
+      height: 50px;
       background-color: $white;
-      padding-right: 10px;
+      //padding-right: 10px;
       display: inline-flex;
       justify-content: space-between;
       margin: auto;
       position: relative;
+
       &__text{
-        line-height: 50px;
-        margin-left: 10px;
+        // position: absolute;
+        // width: 100%;
+        //line-height: 50px;
+        //margin-left: 10px;
+        width: calc(100vw - 500px);
+        
       }
 
       &__image{
+        position: absolute;
+        top: 14px;
+        right:15px;
+        color: $black;
         
       }
     }
     &__send{
-      width: 130px;
+      display: inline-block;
+      width: 100px;
       height: 50px;
       background-color: $blue;
       color: $white;
@@ -189,10 +209,13 @@ html, body {
     }
   }
 }
-
-.fa-image{
-  position: absolute;
-  top: 18px;
-  right:15px;
-  color: $black;
+.hidden
+{
+  display: none;
 }
+// .fa-image{
+//   position: absolute;
+//   top: 18px;
+//   right:15px;
+//   color: $black;
+// }

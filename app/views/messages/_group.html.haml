@@ -1,0 +1,10 @@
+.contents__group
+  .contents__group__info
+    .contents__group__info__name
+      = @group.name
+    .contents__group__info__member
+      -# = group.user.name
+  .contents__group__box
+    = link_to edit_group_path(@group) do
+      .contents__group__box__edit
+        %p.class Edit
