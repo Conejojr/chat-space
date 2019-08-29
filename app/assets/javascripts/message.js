@@ -1,11 +1,7 @@
 $(function(){
   function buildHTML(message){
-    var img ='';
-    if (message.image.url){
-      img =`<img class="contents__chat__list__info__image"
-            src="${message.image.url}">`
-    }
-    
+    var img = message.image.url ? `<img class="contents__chat__list__info__image src="${message.image.url}">` : "''";
+
     var html = `<div class="contents__chat__list">
                   <div class="contents__chat__list__info">
                     <div class="contents__chat__list__info__name">
@@ -47,7 +43,6 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.contents__chat').append(html)
-      // $('.contents__footer__message__text').val('')
       $("#new_message")[0].reset();
       $(".contents__chat").scrollTop( $(".contents__chat").get(0).scrollHeight )
       $('.contents__footer__send').prop('disabled', false);
