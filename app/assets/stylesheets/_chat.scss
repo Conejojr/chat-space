@@ -129,13 +129,13 @@ html, body {
     @include space;
     overflow: scroll;
     &__list{
-      height: 70px;
+      min-height: 50px;
       padding-top: 30px;
       padding-bottom: 30px;
       display: flex;
       &__info{
-        
-        height: 100%;
+        min-height: 100px;
+        // height: 100%;
         padding-right: 10px;
         &__name{
           color: $black;
@@ -148,8 +148,8 @@ html, body {
           padding-top: 10px;
         }
         &__image{
-          height: 100px;
-          width: 200px;
+          max-width: 400px;
+          max-height: 300px;
         }
       }
       &__time{
