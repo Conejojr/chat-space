@@ -66,7 +66,6 @@ $(function(){
         data: {id: last_message_id}
       })
       .done(function(messages) {
-        console.log(messages)
         messages.forEach(function(message){
           var html = buildHTML(message);
           $('.contents__chat').append(html)
@@ -74,7 +73,7 @@ $(function(){
         $(".contents__chat").scrollTop( $(".contents__chat").get(0).scrollHeight )
       })
       .fail(function() {
-        console.log('error');
+        console.log('alert');
       });
     };
   }
