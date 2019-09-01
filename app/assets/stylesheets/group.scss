@@ -61,6 +61,7 @@ li {
   }
   &__field {
     margin-top: 30px;
+    min-height: 54px;
     &:after {
       content: "";
       clear: both;
@@ -78,6 +79,10 @@ li {
       width: 70%;
     }
   }
+}
+
+#user-chat-member{
+margin-top: 13px;
 }
 
 .chat-group-user {
