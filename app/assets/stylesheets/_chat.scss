@@ -97,7 +97,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     &__info{
-      width: 100px;
+      width: 300px;
       margin-top: 35px;
       &__name{
         font-size: 20px;
@@ -213,9 +213,3 @@ html, body {
 {
   display: none;
 }
-// .fa-image{
-//   position: absolute;
-//   top: 18px;
-//   right:15px;
-//   color: $black;
-// }
