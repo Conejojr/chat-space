@@ -4,12 +4,11 @@
     .contents__chat__list__info__name
       %p.class
         = message.user.name
-    .contents__chat__list__info__text
+    .contents__chat__list__info__time
+      %p
+        = message.created_at.strftime("%Y/%m/%d %H:%M")
+  .contents__chat__list__chat
+    .contents__chat__list__chat__text
       %p.class
         = message.content
-    = image_tag message.image.url, class: 'contents__chat__list__info__image' if message.image.present?
-  .contents__chat__list__time
-    %p
-      = message.created_at.strftime("%Y/%m/%d %H:%M")
-
-      
+    = image_tag message.image.url, class: 'contents__chat__list__chat__image' if message.image.present?

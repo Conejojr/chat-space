@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var img = message.image.url ? `<img class="contents__chat__list__info__image" src="${message.image.url}">` : '';
+    var img = message.image.url ? `<img class="contents__chat__list__chat__image" src="${message.image.url}">` : '';
 
     var html = `<div class="contents__chat__list" data-id="${message.id}">
                   <div class="contents__chat__list__info">
@@ -9,18 +9,20 @@ $(function(){
                         ${message.user_name}
                       </p>
                     </div>
-                    <div class="contents__chat__list__info__text">
+                    <div class="contents__chat__list__info__time">
+                      <p>
+                        ${message.create_at}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="contents__chat__list__chat">
+                    <div class="contents__chat__list__chat__text">
                       <p class="class">
                         ${message.message}
                       </p>
                     </div>
-                    ${img}
-                  </div>
-                  <div class="contents__chat__list__time">
-                    <p>
-                      ${message.create_at}
-                    </p>
-                  </div>
+                    ${img}  
+                  </div>                
                 </div>
                   `
     return html;
@@ -69,8 +71,10 @@ $(function(){
         messages.forEach(function(message){
           var html = buildHTML(message);
           $('.contents__chat').append(html)
+          
         });
-        $(".contents__chat").scrollTop( $(".contents__chat").get(0).scrollHeight )
+        if (messages.length != 0)
+          $(".contents__chat").scrollTop( $(".contents__chat").get(0).scrollHeight )
       })
       .fail(function() {
         console.log('alert');
